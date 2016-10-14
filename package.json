@@ -1,0 +1,36 @@
+{
+  "name": "getreal",
+  "version": "1.0.0",
+  "description": "retrieve *real* HTML code from an URL, ultra fast and simple (ideal for web scrapping)",
+  "main": "lib/getreal.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "electron": "electron ./lib/getreal.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielnieto/getreal.git"
+  },
+  "keywords": [
+    "scrapping",
+    "scrap",
+    "scrapper",
+    "electron",
+    "load",
+    "html",
+    "javascript",
+    "real",
+    "web",
+    "scrape",
+    "scraping"
+  ],
+  "author": "Daniel Nieto <danielnieto89@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danielnieto/getreal/issues"
+  },
+  "homepage": "https://github.com/danielnieto/getreal#readme",
+  "dependencies": {
+    "electron": "^1.4.3"
+  }
+}
