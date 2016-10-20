@@ -1,16 +1,16 @@
 {
-  "name": "getreal",
-  "version": "1.0.0",
-  "description": "retrieve *real* HTML code from an URL, ultra fast and simple (ideal for web scrapping)",
+  "name": "scrapman",
+  "version": "2.0.0",
+  "description": "retrieve real (with Javascript executed) HTML code from an URL, ultra fast and supports unlimited parallel loading of webs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "electron": "electron ./lib/getreal.js",
+    "electron": "electron ./lib/scrapman.js",
     "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/danielnieto/getreal.git"
+    "url": "git+https://github.com/danielnieto/scrapman.git"
   },
   "keywords": [
     "scrapping",
@@ -28,9 +28,9 @@
   "author": "Daniel Nieto <danielnieto89@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/danielnieto/getreal/issues"
+    "url": "https://github.com/danielnieto/scrapman/issues"
   },
-  "homepage": "https://github.com/danielnieto/getreal#readme",
+  "homepage": "https://github.com/danielnieto/scrapman#readme",
   "dependencies": {
     "electron": "^1.4.3",
     "ipc-messages-manager": "^1.0.2",
