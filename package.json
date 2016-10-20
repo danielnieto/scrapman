@@ -2,10 +2,11 @@
   "name": "getreal",
   "version": "1.0.0",
   "description": "retrieve *real* HTML code from an URL, ultra fast and simple (ideal for web scrapping)",
-  "main": "lib/getreal.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "electron": "electron ./lib/getreal.js"
+    "electron": "electron ./lib/getreal.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
   "homepage": "https://github.com/danielnieto/getreal#readme",
   "dependencies": {
     "electron": "^1.4.3",
+    "ipc-messages-manager": "^1.0.2",
     "unique-id-generator": "^1.0.1"
   }
 }
