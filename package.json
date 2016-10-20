@@ -32,5 +32,6 @@
   "homepage": "https://github.com/danielnieto/getreal#readme",
   "dependencies": {
     "electron": "^1.4.3"
+    "unique-id-generator": "^1.0.1"
   }
 }
