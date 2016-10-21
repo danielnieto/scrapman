@@ -62,3 +62,12 @@ The URL from which the HTML code is going to be obtained.
 Type: `Function`<br>
 
 The callback function to be executed when the loading is done. The loaded HTML will be in the `results` parameter.
+
+## Questions
+Feel free to open Issues to ask questions about using this package, PRs are very welcomed and encouraged.
+
+**SE HABLA ESPAÑOL**
+
+## License
+
+MIT © Daniel Nieto
