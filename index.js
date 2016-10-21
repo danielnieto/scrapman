@@ -9,23 +9,23 @@ var scrapmanPath = path.join(__dirname, './lib/scrapman.js');
 
 let child = spawn(electronPath, [scrapmanPath], { stdio: ["pipe", "pipe", "pipe", "ipc"] });
 let scrapmanIsReady = false;
-let actionsQueue = [];
+let onceReadyActionsQueue = [];
 
 const ipcManager_parent = require("ipc-messages-manager").parent;
 
 ipcManager_parent.send(child, "notify-when-ready", null, function() {
     scrapmanIsReady = true;
-    executeQueue();
+    executeOnceReadyQueue();
 });
 
-// add action to queue
-let queueAction = (action, params, callback) => {
-    actionsQueue.push({ action, params, callback });
+// add action to once ready queue
+let queueOnceReadyAction = (action, params, callback) => {
+    onceReadyActionsQueue.push({ action, params, callback });
 }
 
-let executeQueue = () => {
+let executeOnceReadyQueue = () => {
     // execute all pending actions, this will be executed once the "scrapman"(Electron) instance is ready
-    actionsQueue.forEach((action) => {
+    onceReadyActionsQueue.forEach((action) => {
         // send the actual message to the child
         ipcManager_parent.send(child, action.action, action.params, function(result) {
             action.callback(result);
@@ -33,7 +33,7 @@ let executeQueue = () => {
     });
 
     // clean up the queue
-    actionsQueue = [];
+    onceReadyActionsQueue = [];
 }
 
 let load = (url, callback) => {
@@ -44,7 +44,7 @@ let load = (url, callback) => {
         });
     } else {
         // if the scrapman instance is not ready yet, then add the function to the queue
-        queueAction("load", {url}, callback);
+        queueOnceReadyAction("load", {url}, callback);
     }
 }
 
