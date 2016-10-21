@@ -1,7 +1,7 @@
 {
   "name": "scrapman",
-  "version": "2.0.1",
-  "description": "retrieve real (with Javascript executed) HTML code from an URL, ultra fast and supports unlimited parallel loading of webs",
+  "version": "2.1.0",
+  "description": "Retrieve real (with Javascript executed) HTML code from an URL, ultra fast and supports multiple parallel loading of webs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
