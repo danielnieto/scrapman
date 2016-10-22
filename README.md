@@ -34,7 +34,7 @@ Single URL request
 scrapman.load("http://google.com", function(results){
 	//results contains the HTML obtained from the url
 	console.log(results);
-}
+});
 ```
 Parallel URL requests
 
