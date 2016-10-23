@@ -11,8 +11,11 @@ let child = spawn(electronPath, [scrapmanPath], { stdio: ["pipe", "pipe", "pipe"
 let scrapmanIsReady = false;
 let onceReadyActionsQueue = [];
 let actionsQueue = [];
-let maxConcurrentOperations = 50;
 let currentConcurrentOperations = 0;
+
+let config = {
+    maxConcurrentOperations: 50
+}
 
 const ipcManager_parent = require("ipc-messages-manager").parent;
 
@@ -48,7 +51,7 @@ let executeRemainingQueuedActions = () => {
 //to prevent the Three Stooges Syndrome (clogging above 50 concurrent operations)
 let executeAction = (action, params, callback) => {
     // check if more concurrent operations can be executed
-    if(currentConcurrentOperations < maxConcurrentOperations){
+    if(currentConcurrentOperations < config.maxConcurrentOperations){
 
         // increment the "councurrent operations" counter
         currentConcurrentOperations++;
@@ -79,6 +82,11 @@ let load = (url, callback) => {
     }
 }
 
+let configure = (newConfig)=>{
+    config = Object.assign({}, config, newConfig);
+}
+
 module.exports = {
-    load
+    load,
+    configure
 }

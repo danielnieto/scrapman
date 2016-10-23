@@ -49,9 +49,7 @@ for(var i=1; i<=50; i++){
 
 ##API
 
->One method to rule them all
-
-###scrapman.load(url, callback)
+###- scrapman.load(url, callback)
 
 ####url
 Type: `String`<br>
@@ -62,6 +60,14 @@ The URL from which the HTML code is going to be obtained.
 Type: `Function`<br>
 
 The callback function to be executed when the loading is done. The loaded HTML will be in the `results` parameter.
+
+###- scrapman.configure(config)
+
+####config
+The configuration object can set the following values
+
+* `maxConcurrentOperations`: Integer - The intensity of processing, how many URLs can be loaded at the same time, default: 50
+
 
 ## Questions
 Feel free to open Issues to ask questions about using this package, PRs are very welcomed and encouraged.
