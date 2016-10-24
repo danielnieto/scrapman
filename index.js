@@ -2,8 +2,14 @@
 
 const path = require("path");
 const spawn = require("child_process").spawn
-const electronPath = require("electron");
+const electron = require("electron");
 
+// get the electron executable path to spawn a child process with it,
+// normally "require('electron')" will return its path, but if it's executed
+// on an Electron context (i.e. using Scrapman within another Electron app)
+// "require('electron')" will return the current Electron instance,
+// if this is the case then get the path from the instance itself.
+let electronPath = typeof electron === "string" ? electron : electron.app.getPath("exe");
 
 var scrapmanPath = path.join(__dirname, './lib/scrapman.js');
 
