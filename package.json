@@ -1,6 +1,6 @@
 {
   "name": "scrapman",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Retrieve real (with Javascript executed) HTML code from an URL, ultra fast and supports multiple parallel loading of webs",
   "main": "index.js",
   "scripts": {
