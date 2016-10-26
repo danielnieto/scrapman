@@ -25,6 +25,16 @@ let config = {
 
 const ipcManager_parent = require("ipc-messages-manager").parent;
 
+let killChild = ()=>{ child.kill("SIGINT");}
+
+// when parent process is exiting, then also kill the child process
+process.on('exit', killChild);
+process.on('SIGINT', killChild);
+process.on('SIGTERM', killChild);
+process.on('SIGQUIT', killChild);
+process.on('SIGHUP', killChild);
+process.on('SIGBREAK', killChild);
+
 ipcManager_parent.send(child, "notify-when-ready", null, function() {
     scrapmanIsReady = true;
     executeOnceReadyQueue();
