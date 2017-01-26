@@ -68,6 +68,8 @@ The configuration object can set the following values
 
 * `maxConcurrentOperations`: Integer - The intensity of processing, how many URLs can be loaded at the same time, default: 50
 
+* `wait`: Integer - The amount of milliseconds to wait before returning the HTML code of a webpage after it has been completely loaded, default: 0
+
 
 ## Questions
 Feel free to open Issues to ask questions about using this package, PRs are very welcomed and encouraged.
