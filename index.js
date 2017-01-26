@@ -20,7 +20,8 @@ let actionsQueue = [];
 let currentConcurrentOperations = 0;
 
 let config = {
-    maxConcurrentOperations: 50
+    maxConcurrentOperations: 50,
+    wait: 0
 }
 
 const ipcManager_parent = require("ipc-messages-manager").parent;
@@ -88,13 +89,19 @@ let executeAction = (action, params, callback) => {
 }
 
 let load = (url, callback) => {
+
+    const args = {
+        url: url,
+        wait: config.wait
+    }
+
     if (scrapmanIsReady) {
         // if scrapman instance is ready, try to send the action to the child
-        executeAction("load", {url}, callback);
+        executeAction("load", args, callback);
     } else {
         // if the scrapman instance is not ready yet, then add the function
         // to the queue that will get executed once it's ready
-        queueOnceReadyAction("load", {url}, callback);
+        queueOnceReadyAction("load", args, callback);
     }
 }
 
