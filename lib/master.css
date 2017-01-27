@@ -2,11 +2,17 @@ html{
     background-color: #a6d120;
 }
 
-webview{
-    border:1px solid red;
-    width: 300px;
-    height: 300px;
-}
+webview {
+   display: inline-flex;
+   width: 640px;
+   height: 480px;
+ }
+
+ webview.hide {
+   flex: 0 1;
+   width: 0px;
+   height: 0px;
+ }
 
 #webviewsContainer{
     border:2px solid white;
