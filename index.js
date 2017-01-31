@@ -1,7 +1,10 @@
-"use strict"
+/*jshint esversion: 6*/
+/*jshint node: true*/
+"use strict";
+
 
 const path = require("path");
-const spawn = require("child_process").spawn
+const spawn = require("child_process").spawn;
 const electron = require("electron");
 
 // get the electron executable path to spawn a child process with it,
@@ -22,11 +25,11 @@ let currentConcurrentOperations = 0;
 let config = {
     maxConcurrentOperations: 50,
     wait: 0
-}
+};
 
 const ipcManager_parent = require("ipc-messages-manager").parent;
 
-let killChild = ()=>{ child.kill("SIGINT");}
+let killChild = ()=>{ child.kill("SIGINT");};
 
 // when parent process is exiting, then also kill the child process
 process.on('exit', killChild);
@@ -44,7 +47,7 @@ ipcManager_parent.send(child, "notify-when-ready", null, function() {
 // add action to once ready queue
 let queueOnceReadyAction = (action, params, callback) => {
     onceReadyActionsQueue.push({ action, params, callback });
-}
+};
 
 let executeOnceReadyQueue = () => {
     // execute all pending actions, this will be executed once the "scrapman"(Electron) instance is ready
@@ -55,14 +58,14 @@ let executeOnceReadyQueue = () => {
 
     // clean up the queue
     onceReadyActionsQueue = [];
-}
+};
 
 let executeRemainingQueuedActions = () => {
     if(actionsQueue.length > 0){
         let queuedAction = actionsQueue.shift();
         executeAction(queuedAction.action, queuedAction.params, queuedAction.callback);
     }
-}
+};
 
 //this function limits concurrent execution of several actions,
 //to prevent the Three Stooges Syndrome (clogging above 50 concurrent operations)
@@ -86,14 +89,14 @@ let executeAction = (action, params, callback) => {
         // all concurrent slots are occupied, queue this operation.
         actionsQueue.push({action, params, callback});
     }
-}
+};
 
 let load = (url, callback) => {
 
     const args = {
         url: url,
         wait: config.wait
-    }
+    };
 
     if (scrapmanIsReady) {
         // if scrapman instance is ready, try to send the action to the child
@@ -103,13 +106,13 @@ let load = (url, callback) => {
         // to the queue that will get executed once it's ready
         queueOnceReadyAction("load", args, callback);
     }
-}
+};
 
 let configure = (newConfig)=>{
     config = Object.assign({}, config, newConfig);
-}
+};
 
 module.exports = {
     load,
     configure
-}
+};
