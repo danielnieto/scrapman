@@ -6,7 +6,7 @@
 *Yo da dub dub*<br><br>
 ***I'm the Scrapman!***
 
-###THE FASTEST SCRAPPER EVER\*... AND IT SUPPORTS PARALLEL REQUESTS <small>(\*arguably)</small>
+### THE FASTEST SCRAPPER EVER\*... AND IT SUPPORTS PARALLEL REQUESTS <small>(\*arguably)</small>
 
 Scrapman is a blazingly fast **real (with Javascript executed)** HTML scrapper, built from the ground up to support parallel fetches, with this you can get the HTML code for 50+ URLs in seconds (~30 seconds).
 
@@ -16,7 +16,7 @@ It uses [Electron](http://electron.atom.io) to dynamically load web pages into s
 
 This is **NOT** an browser automation tool (yet), it's a node module that gives you the processed HTML from an URL, it focuses on multiple parallel operations and speed.
 
-##USAGE
+## USAGE
 
 1.- Install it
 
@@ -47,23 +47,23 @@ for(var i=1; i<=50; i++){
 }
 ```
 
-##API
+## API
 
-###- scrapman.load(url, callback)
+### - scrapman.load(url, callback)
 
-####url
+#### url
 Type: `String`<br>
 
 The URL from which the HTML code is going to be obtained.
 
-####callback(results)
+#### callback(results)
 Type: `Function`<br>
 
 The callback function to be executed when the loading is done. The loaded HTML will be in the `results` parameter.
 
-###- scrapman.configure(config)
+### - scrapman.configure(config)
 
-####config
+#### config
 The configuration object can set the following values
 
 * `maxConcurrentOperations`: Integer - The intensity of processing, how many URLs can be loaded at the same time, default: 50
